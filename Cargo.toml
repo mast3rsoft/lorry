@@ -4,7 +4,7 @@ version = "0.1.0"
 authors = ["Jakob Neufeld <jakob.n.neufeld@gmail.com>"]
 edition = "2018"
 readme = "README.md"
-license = "MPL"
+license = "MPL-2.0"
 description = "Make Cargo.toml files with rust"
 repository = "https://github.com/mast3rsoft/lorry"
 
