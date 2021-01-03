@@ -1,7 +1,6 @@
-#![feature(with_options)]
 
 use toml_edit::{Document, value};
-use std::fs::{read_to_string, File};
+use std::fs::{read_to_string, OpenOptions};
 use ansi_term::*;
 use std::process::exit;
 use std::io::Write;
@@ -94,7 +93,7 @@ impl Program {
                 for dep in self.dependencies {
                     tomlspec["dependencies"][dep.0] = value(dep.1)
                 }
-                let mut cargo_file = File::with_options().write(true).open("Cargo.toml")
+                let mut cargo_file = OpenOptions::new().write(true).open("Cargo.toml")
                 .expect("Fatal error. Cargo toml not found. This is probably a bug. Please report it on github.");
                 cargo_file.write(tomlspec.to_string().as_bytes()).expect("Cargo.toml erorr");
             }
