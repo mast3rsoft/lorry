@@ -76,7 +76,7 @@ impl Program {
         self.dependencies.insert(name, version);
         self
     }
-    /// Generates corgo toml.
+    /// Generates cargo toml.
     ///
     /// __Also runs the `check` function__
     pub fn gen(self) {
