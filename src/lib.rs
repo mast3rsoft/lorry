@@ -1,5 +1,6 @@
 
-use toml_edit::{Document, value};
+use toml_edit::{Document, value, Array};
+
 use std::fs::{read_to_string, OpenOptions};
 use ansi_term::*;
 use std::process::exit;
@@ -9,9 +10,10 @@ use std::collections::HashMap;
 /// The heart of your spec
 pub struct Program {
     name: &'static str,
-    author: &'static str,
+    authors: Array,
     dependencies: HashMap<&'static str, &'static str>,
-    version: &'static str
+    version: &'static str,
+    edition: &'static str
 }
 
 
@@ -20,23 +22,31 @@ impl Program {
     ///
     /// **All values are blank**
     pub fn new() -> Program {
-
         Program {
             // 0000 means required value not set
             // blank means optional
             name: "placeholder name",
-            author: "placeholder name",
+            authors: Array::default(),
             version: "plaeceholder",
+            edition: "2018",
             dependencies: HashMap::new()
         }
     }
-    /// Sets the author
+
+    pub fn edition(mut self, editon: &'static str)  -> Self{
+        info("With Edition");
+        info(editon);
+        self.edition  = editon;
+        self
+    }
+
+    /// Adds an author
     ///
     /// **It is required**
     pub fn author(mut self ,author: &'static str)  -> Self{
         info("Author name is");
         info(author);
-        self.author = author;
+        self.authors.push(author);
         self
     }
     /// Sets the version
@@ -50,7 +60,7 @@ impl Program {
     }
     /// Checks the package for invalid config
     pub fn check(&self) {
-        if self.name == "placeholder name" || self.author == "placeholder name" || self.version == "placeholder"  {
+        if self.name == "placeholder name" || self.authors.is_empty() || self.version == "placeholder"  {
             error(" Missing required fields. Name, Author and Version are required in spec.rs");
         }
 
@@ -86,9 +96,9 @@ impl Program {
             let  cargo_toml_doc = cargo_toml.parse::<Document>();
             if let Ok( mut tomlspec) = cargo_toml_doc {
                 tomlspec["package"]["name"] = value(self.name);
-                tomlspec["package"]["author"] = value(self.author);
+                tomlspec["package"]["authors"] = value(self.authors);
                 tomlspec["package"]["version"] = value(self.version);
-
+                tomlspec["package"]["edition"] = value(self.edition);
 
                 for dep in self.dependencies {
                     tomlspec["dependencies"][dep.0] = value(dep.1)

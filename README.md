@@ -15,10 +15,11 @@
 
 ---
 ### Right know I have these fields implemented
-- [x]  author
+- [x]  authors
 - [x]  version
 - [x]  name
 - [X]  dependencies
+- [x]  edition
 ### If you need an extra field, just add it.
 ### lorry only touches the fields in needs to
 ### lorry keeps all of your old Cargo.toml safe :-)
