@@ -20,6 +20,9 @@
 - [x]  name
 - [X]  dependencies
 - [x]  edition
+- [x]  documentation
+- [x]  readme
+- [x]  description
 ### If you need an extra field, just add it.
 ### lorry only touches the fields in needs to
 ### lorry keeps all of your old Cargo.toml safe :-)
