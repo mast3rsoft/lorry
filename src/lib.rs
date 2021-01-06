@@ -202,7 +202,6 @@ fn warn(reason: &str) {
         Color::Cyan.paint(reason)
     );
 }
-#[cfg(debug_assertions)]
 fn info(reason: &str) {
     eprintln!(
         "{} {}",
@@ -210,7 +209,6 @@ fn info(reason: &str) {
         Color::Cyan.paint(reason)
     );
 }
-#[cfg(debug_assertions)]
 fn good(reason: &str) {
     eprintln!(
         "{} {}",
@@ -218,7 +216,6 @@ fn good(reason: &str) {
         Color::Cyan.paint(reason)
     );
 }
-#[cfg(debug_assertions)]
 fn error(reason: &str) {
     eprintln!(
         "{}: {}",

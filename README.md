@@ -43,7 +43,8 @@ Thanks to toml edit, only the fields that are necessary are changed
 5. run cargo check to generate Cargo.toml
 6. If you are using vscode with rust- analyzer it works automatically (because rust analyzer runs cargo check every time)
 ---
-# Lorry cli is coming soon
+# Lorry cli is here!!
+# Search up lorry-cli for more info
 ---
 # Why
 ---
