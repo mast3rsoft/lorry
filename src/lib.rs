@@ -139,7 +139,7 @@ impl Program {
 
         self
     }
-    /// Adds a dependencie
+    /// Adds a dependency
     pub fn dependencie(mut self, name: &'static str, version: &'static str) -> Self {
         info("Dependencie");
         info(name);
