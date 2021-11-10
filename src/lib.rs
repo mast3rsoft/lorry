@@ -6,6 +6,10 @@ use std::fs::{read_to_string, OpenOptions};
 use std::io::Write;
 use std::process::exit;
 
+
+
+
+
 /// The heart of your spec
 pub struct Program {
     name: &'static str,
@@ -45,7 +49,7 @@ impl Program {
             name: "placeholder name",
             authors: Array::default(),
             version: "plaeceholder",
-            edition: "2018",
+            edition: "2021",
             dependencies: HashMap::new(),
             readme: None,
             repo: None,
