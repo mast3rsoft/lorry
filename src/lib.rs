@@ -21,6 +21,9 @@ pub struct Program {
     license: &'static str,
 }
 
+
+
+
 impl Program {
     /// Adds a license
     ///
@@ -52,6 +55,9 @@ impl Program {
             license: "MIT",
         }
     }
+
+
+
     /// Adds a readme path
     ///
     /// **OPTIONAL**
